@@ -1,0 +1,168 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "1.0.0"
+  title: VRF相关接口
+  description: |
+    提供VRF相关接口
+
+tags:
+  - name: VRF
+    description: 提供VRF相关接口
+    
+    
+schemes:
+  - http
+host: 127.0.0.1:8080
+basePath: /api/umebn-em-vrf/v1
+
+paths:
+
+  /mes/me/{meid}/vrfs/creation:
+    post:
+      description: 创建VRF
+      operationId: createVRFs
+      tags: 
+        - VRF
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/meid'
+        - name: vrfs
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+      responses:
+        200:
+          description: 成功返回
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+        500:
+          description: 服务器内部错误
+          schema:
+            $ref: "#/definitions/ErrorMsg"
+            
+  /mes/me/{meid}/vrfs/modification:
+    post:
+      description: 修改VRF
+      operationId: modifyVRFs
+      tags: 
+        - VRF
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/meid'
+        - name: vrfs
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+      responses:
+        200:
+          description: 成功返回
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+        500:
+          description: 服务器内部错误
+          schema:
+            $ref: "#/definitions/ErrorMsg" 
+            
+  /mes/me/{meid}/vrfs/deletion:
+    post:
+      description: 删除VRF
+      operationId: deleteVRFs
+      tags: 
+        - VRF
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/meid'
+        - name: vrfs
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+      responses:
+        200:
+          description: 成功返回
+          schema:
+            type: array
+            items:
+              $ref: './../../../inventory/basic/vrf/UmeInventoryVRF.yaml#/definitions/VRF'
+        500:
+          description: 服务器内部错误
+          schema:
+            $ref: "#/definitions/ErrorMsg" 
+            
+  /mes/me/{meid}/vrfs/upload:
+    post:
+      description: 上载VRF
+      operationId: uploadVRFs
+      tags: 
+        - VRF
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/meid'
+      responses:
+        201:
+          description: 操作成功
+        500:
+          description: 服务器内部错误
+          schema:
+            $ref: "#/definitions/ErrorMsg"
+
+parameters:
+  meid:
+    name: meid
+    in: path
+    description: 网元的UUID。
+    required: true
+    type: string
+  emsid:
+    name: emsid
+    in: path
+    description: EMS的UUID。
+    required: true
+    type: string             
+            
+definitions:
+  ErrorMsg:
+    properties:
+      errorCode:
+        type: integer
+        format: int32
+      level:
+        type: integer
+        format: int32
+      labels:
+        type: object
+        additionalProperties:
+          type: string
+  FcPoint:
+    $ref: './../../../servicemgt/basic/yaml/fc.yaml#/definitions/FcPoint'
+  Bandwidth:
+    $ref: './../../../servicemgt/basic/yaml/qos.yaml#/definitions/Bandwidth'

@@ -1,0 +1,852 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "1.0"
+  title: intendlaunch
+  description: 意图开通相关接口
+  
+tags:
+  - name: intendlaunch
+    description: 意图开通
+schemes:
+  - http
+host: 127.0.0.1:8080
+basePath: /api/intendlaunch/v1
+
+paths:
+
+  /logicType/createLogicType:
+    post: 
+      description: 创建逻辑类型
+      tags: 
+        - createLogicType
+      operationId: createLogicType
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: intendLogicType
+          in: body
+          description: 逻辑类型
+          required: true
+          schema:
+            $ref: '#/definitions/IntendLogicType'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicType'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /logicType/modifyLogicType:
+    post: 
+      description: 修改逻辑类型
+      operationId: modifyLogicType
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - modifyLogicType
+      parameters:
+        - name: intendLogicType
+          in: body
+          description: 逻辑类型
+          required: true
+          schema:
+            $ref: '#/definitions/IntendLogicType'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicType'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /logicType/deleteLogicType:
+    post: 
+      description: 删除逻辑类型
+      operationId: deleteLogicType
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - deleteLogicType
+      parameters:
+        - name: intendLogicTypeList
+          in: body
+          description: 逻辑类型
+          required: true
+          schema:
+            $ref: "#/definitions/IntendLogicTypeList" 
+      responses:
+        200:
+          description: success
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /logicType/queryLogicType:
+    post: 
+      description: 查询逻辑类型
+      operationId: queryLogicType
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryLogicType
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicTypeList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /logicFrame/queryLogicFrame:
+    post: 
+      description: 查询逻辑机架
+      operationId: queryLogicFrame
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryLogicFrame
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicFrameList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+            
+  /logicFrame/createLogicFrame:
+    post: 
+      description: 创建逻辑机架
+      tags: 
+        - createLogicFrame
+      operationId: createLogicFrame
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: intendLogicFrame
+          in: body
+          description: 逻辑机架
+          required: true
+          schema:
+            $ref: '#/definitions/IntendLogicFrame'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicFrame'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+            
+  /logicFrame/modifyLogicFrame:
+    post: 
+      description: 修改逻辑机架
+      tags: 
+        - modifyLogicFrame
+      operationId: modifyLogicFrame
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: intendLogicFrame
+          in: body
+          description: 逻辑机架
+          required: true
+          schema:
+            $ref: '#/definitions/IntendLogicFrame'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/IntendLogicFrame'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+  
+  /logicFrame/deleteLogicFrame:
+    post: 
+      description: 删除逻辑机架
+      operationId: deleteLogicFrame
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - deleteLogicFrame
+      parameters:
+        - name: intendLogicFrameList
+          in: body
+          description: 逻辑机架列表
+          required: true
+          schema:
+            $ref: "#/definitions/IntendLogicFrameList" 
+      responses:
+        200:
+          description: success
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+            
+
+  /podTemplate/createPodTemplate:
+    post:
+      description: 创建POD模板
+      tags: 
+        - createPodTemplate
+      operationId: createPodTemplate
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: PodTemplate
+          in: body
+          description: POD模板
+          required: true
+          schema:
+            $ref: '#/definitions/PodTemplate'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodTemplate'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podTemplate/modifyPodTemplate:
+    post: 
+      description: 修改POD模板
+      operationId: modifyPodTemplate
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - modifyPodTemplate
+      parameters:
+        - name: PodTemplate
+          in: body
+          description: POD模板
+          required: true
+          schema:
+            $ref: '#/definitions/PodTemplate'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodTemplate'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podTemplate/deletePodTemplates:
+    post: 
+      description: 删除POD模板
+      operationId: deletePodTemplates
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - deletePodTemplate
+      parameters:
+        - name: PodTemplateList
+          in: body
+          description: POD模板
+          required: true
+          schema:
+            $ref: "#/definitions/PodTemplateList" 
+      responses:
+        200:
+          description: success
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podTemplate/queryPodTemplateAll:
+    post: 
+      description: 查询POD模板
+      operationId: queryPodTemplates
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryPodTemplates
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodTemplateList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+            
+  /podTemplate/queryPodTemplateById:
+    post: 
+      description: 查询POD模板
+      operationId: queryPodTemplateById
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryPodTemplateById
+      parameters:
+        - name: podTemplateId
+          in: query
+          description: pod模板ID
+          type: string
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodTemplate'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podGroup/createPodLogicDeviceGroup:
+    post: 
+      description: 创建POD模板逻辑类型定义
+      tags: 
+        - createPodLogicDeviceGroup
+      operationId: createPodLogicDeviceGroup
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: podLogicDeviceGroup
+          in: body
+          description: POD模板逻辑类型定义
+          required: true
+          schema:
+            $ref: '#/definitions/PodLogicDeviceGroup'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodLogicDeviceGroup'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podGroup/modifyPodLogicDeviceGroup:
+    post: 
+      description: 修改POD模板逻辑类型定义
+      operationId: modifyPodLogicDeviceGroup
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - modifyPodLogicDeviceGroup
+      parameters:
+        - name: podLogicDeviceGroup
+          in: body
+          description: POD模板逻辑类型定义
+          required: true
+          schema:
+            $ref: '#/definitions/podLogicDeviceGroup'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/podLogicDeviceGroup'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podGroup/deletePodLogicDeviceGroups:
+    post: 
+      description: 删除POD模板逻辑类型定义
+      operationId: deletePodLogicDeviceGroups
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - deletePodLogicDeviceGroups
+      parameters:
+        - name: podLogicDeviceGroupList
+          in: body
+          description: POD模板逻辑类型定义
+          required: true
+          schema:
+            $ref: "#/definitions/PodLogicDeviceGroupList" 
+      responses:
+        200:
+          description: success
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podGroup/queryPodLogicDeviceGroupList:
+    post: 
+      description: 查询POD模板逻辑类型定义
+      operationId: queryPodLogicDeviceGroupList
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryPodLogicDeviceGroupList
+      parameters:
+        - name: groupId
+          in: query
+          description: groupId
+          type: string
+        - name: podTemplateId
+          in: query
+          description: pod模板ID
+          type: string
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/podLogicDeviceGroupList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+            
+            
+
+  /podLogicDevice/createPodLogicDeviceList:
+    post: 
+      description: 创建POD模板逻辑类型
+      tags: 
+        - createPodLogicDeviceList
+      operationId: createPodLogicDeviceList
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      parameters:
+        - name: podLogicDevice
+          in: body
+          description: POD模板逻辑类型
+          required: true
+          schema:
+            $ref: '#/definitions/PodLogicDeviceList'
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodLogicDeviceList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+
+  /podLogicDevice/deletePodLogicDevices:
+    post: 
+      description: 删除POD模板逻辑类型
+      operationId: deletePodLogicDevices
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - deletePodLogicDevices
+      parameters:
+        - name: podLogicDeviceList
+          in: body
+          description: POD模板逻辑类型
+          required: true
+          schema:
+            $ref: "#/definitions/PodLogicDeviceList" 
+      responses:
+        200:
+          description: success
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+  /podLogicDevice/queryPodLogicDeviceList:
+    post: 
+      description: 查询POD模板逻辑类型
+      operationId: queryPodLogicDeviceList
+      consumes: 
+        - application/json
+      produces: 
+        - application/json
+      tags: 
+        - queryPodLogicDeviceList
+      parameters:
+        - name: logicDeviceId
+          in: query
+          description: pod模板中的逻辑设备
+          type: string
+        - name: groupId
+          in: query
+          description: groupId
+          type: string
+        - name: podTemplateId
+          in: query
+          description: pod模板ID
+          type: string
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/PodLogicDeviceList'
+        default:
+          description: failed
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+            
+            
+
+
+            
+definitions:
+
+
+  ErrorMsg:
+    properties:
+      errCode:
+        type: integer
+      errMsg:
+        type: string
+
+  IntendLogicTypeList:
+    description: 逻辑类型列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicType'
+
+  IntendLogicType:
+    description: 逻辑类型
+    required:
+      - logicTypeId
+    properties:
+      logicTypeId:
+        type: string
+        description: 逻辑类型主键 
+      logicTypeName:
+        type: string
+        description: 逻辑类型名称 
+      description:
+        type: string
+        description: 描述信息
+      boardNumber:
+        type: string
+        description: 单板数量 
+      portTotalNumber:
+        type: string
+        description: 端口总数
+      logicTypeBoardList:
+        description: 逻辑类型单板列表 
+        $ref: '#/definitions/IntendLogicTypeBoardList'
+
+        
+  IntendLogicTypeBoardList:
+    description: 逻辑类型单板列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicTypeBoard'
+
+      
+  IntendLogicTypeBoard:
+    description: 逻辑类型单板
+    required:
+      - logicTypeBoardId
+    properties:
+      logicTypeBoardId:
+        type: string
+        description: 逻辑类型单板主键
+      logicTypeId:
+        type: string
+        description: 逻辑类型主键
+      logicTypeBoardName:
+        type: string
+        description: 逻辑类型单板名称
+      logicTypePortList:
+        description: 逻辑类型端口列表 
+        $ref: '#/definitions/IntendLogicTypePortList'
+  
+  IntendLogicTypePortList:
+    description: 逻辑类型端口列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicTypePort'
+  
+  IntendLogicTypePort:
+    description: 逻辑类型端口
+    required:
+      - logicTypePortId
+    properties:
+      logicTypePortId:
+        type: string
+        description: 逻辑类型端口主键
+      logicTypeId:
+        type: string
+        description: 逻辑类型主键
+      logicTypeBoardId:
+        type: string
+        description: 逻辑类型单板主键
+      logicTypePortType:
+        type: string
+        description: 逻辑类型端口类型
+      logicTypePortNumber:
+        type: string
+        description: 逻辑类型端口数量
+      logicTypePortRole:
+        type: string
+        description: 逻辑类型端口角色
+        
+  IntendLogicFrameList:
+    description: 逻辑机架列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicFrame'
+
+  IntendLogicFrame:
+    description: 逻辑机架
+    required:
+      - logicFrameId
+    properties:
+      logicFrameId:
+        type: string
+        description: 逻辑机架主键
+      logicFrameName:
+        type: string
+        description: 逻辑机架名称
+      logicFrameDescription:
+        type: string
+        description: 逻辑机架描述
+      logicFrameConnectType:
+        type: string
+        description: 逻辑机架连接类型
+      logicFrameLeafExchangeType:
+        type: string
+        description: 逻辑机架leaf交换机类型
+      logicFrameLeafExchangeNumber:
+        type: string
+        description: 逻辑机架leaf交换机数量
+      logicFrameLeafExchangeList:
+        description: 逻辑机架leaf交换机列表
+        $ref: '#/definitions/IntendLogicFrameLeafExchangeList'
+      logicFrameServerList:
+        description: 逻辑机架服务器列表 
+        $ref: '#/definitions/IntendLogicFrameServerList'
+        
+        
+  IntendLogicFrameLeafExchangeList:
+    description: 逻辑机架leaf交换机列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicFrameLeafExchange'
+      
+  IntendLogicFrameLeafExchange:
+    description: 逻辑机架leaf交换机
+    required:
+      - logicFrameLeafExchangeId
+    properties:
+      logicFrameLeafExchangeId:
+        type: string
+        description: 逻辑机架leaf交换机主键
+      logicFrameId:
+        type: string
+        description: 逻辑机架主键
+      logicFrameLeafExchangeLogicDevice:
+        type: string
+        description: 逻辑机架leaf交换机对应逻辑设备
+      logicFrameLeafExchangeUpSpinePortNumber:
+        type: string
+        description: 逻辑机架leaf交换机上联spine端口数量
+      logicFrameLeafExchangeUpSpinePortType:
+        type: string
+        description: 逻辑机架leaf交换机上联spine端口类型
+      
+  IntendLogicFrameServerList:
+    description: 逻辑机架服务器列表List
+    type: array
+    items:
+      $ref: '#/definitions/IntendLogicFrameServer'
+      
+  IntendLogicFrameServer:
+    description: 逻辑机架服务器
+    required:
+      - logicFrameServerId
+    properties:
+      logicFrameServerId:
+        type: string
+        description: 逻辑机架服务器主键
+      logicFrameId:
+        type: string
+        description: 逻辑机架主键
+      logicFrameServerType:
+        type: string
+        description: 逻辑机架服务器类型
+      logicFrameServerLogicDevice:
+        type: string
+        description: 逻辑机架服务器对应逻辑设备
+      logicFrameServerConnectLeaflinkNumber:
+        type: string
+        description: 逻辑机架服务器连接leaf交换机链路端口数量
+      logicFrameServerConnectLeaflinkType:
+        type: string
+        description: 逻辑机架服务器连接leaf交换机链路端口类型
+      logicFrameServerNumber:
+        type: string
+        description: 逻辑机架服务器端口
+      logicFrameServerConnectType:
+        type: string
+        description: 逻辑机架服务器连接类型
+
+  PodTemplateList:
+    description: POD模板列表List
+    type: array
+    items:
+      $ref: '#/definitions/PodTemplate'
+      
+  PodTemplate:
+    description: POD模板
+    required:
+      - podTemplateId
+    properties:
+      podTemplateId:
+        type: string
+        description: POD模板主键
+      podTemplateName:
+        type: string
+        description: POD模板名称
+      routingStrategy:
+        type: string
+        description: 路由策略：默认路由DefaultRoute   明细路由DetailedRoute
+      ipAddressType:
+        type: string
+        description: IP地址类型 IPV4 IPV6
+      routingProtocolType:
+        type: string
+        description: 路由协议类型 OSPF ISIS
+        
+        
+  PodLogicDeviceGroupList:
+    description: POD逻辑设备定义信息列表List，树结构展示数据
+    type: array
+    items:
+      $ref: '#/definitions/PodLogicDeviceGroup'
+      
+  PodLogicDeviceGroup:
+    description: POD逻辑设备定义，一次定义对应一个分组
+    required:
+      - groupId
+    properties:
+      groupId:
+        type: string
+        description: POD逻辑设备定义分组ID
+      podTemplateId:
+        type: string
+        description: POD模板主键
+      podLogicDeviceType:
+        type: string
+        description: 逻辑设备类型：GW   SPINE   机架TOR
+      groupName:
+        type: string
+        description: POD逻辑设备定义分组名称
+      groupIndex:
+        type: string
+        description: 分组序号
+      logicTypeId:
+        type: string
+        description: 逻辑类型ID，通逻辑类型定义
+      logicDeviceNumber:
+        type: string
+        description: 逻辑设备数量
+      linkGroupId:
+        type: string
+        description: 关联的分组ID ，多个以逗号分割
+      podLogicDeviceList:
+        description: POD模板中逻辑设备列表List
+        $ref: '#/definitions/PodLogicDeviceList'
+        
+        
+        
+  PodLogicDeviceList:
+    description: POD模板中逻辑设备列表List
+    type: array
+    items:
+      $ref: '#/definitions/PodLogicDevice'
+      
+  PodLogicDevice:
+    description: POD逻辑设备
+    required:
+      - logicDeviceId
+    properties:
+      logicDeviceId:
+        type: string
+        description: POD逻辑设备ID
+      groupId:
+        type: string
+        description: 逻辑设备所属分组
+      podTemplateId:
+        type: string
+        description: 逻辑设备所属POD模板ID
+      logicDeviceName:
+        type: string
+        description: 逻辑设备名称
+      logicDeviceIndex:
+        type: string
+        description: 逻辑设备序号
+      logicDevicePosition:
+        type: string
+        description: 逻辑设备序号
+      portNumber:
+        type: string
+        description: 端口总数
+      userPortNumber:
+        type: string
+        description: 已使用端口总数
+      UnUserPortNumber:
+        type: string
+        description: 未使用的端口数
+      otherData:
+        type: string
+        description: 其他属性,json格式
+     
